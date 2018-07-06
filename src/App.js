@@ -4,15 +4,52 @@ import './App.css';
 import Dashboard from './Component/Dashboard/Dashboard';
 import Form from './Component/Form/Form';
 import Header from './Component/Header/Header';
+import axios from 'axios';
 
 class App extends Component {
 
 constructor(){
-  super()
+  super();
   this.state = {
-    
-  }
+    clothes: 
+        [{name: '', 
+         price: '', 
+         img: ''}
+         ]
+  };
 }
+
+componentDidMount(){
+axios.get('/api/inventory').then(results => {
+  this.setState({
+    products: results.data
+  })
+})
+}
+
+getAll: (req, res, next) => {
+  const shelfieDB = req.app.get('db');
+  const {params} = req;
+
+  shelfieDB.read
+}
+}
+
+
+
+render(){
+//   // let allInventory = this.state.clothes
+return(
+
+
+//   <Dashboard key={i}
+//   name={e.name}
+//   price={e.price}
+//   img={e.img}
+//   />
+// )
+
+// }
 
 
   render() {

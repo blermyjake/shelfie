@@ -1,14 +1,23 @@
+const axios = require('axios');
+
+let products = [];
+
+// axios.get('/api/inventory').then(res => {
+//     products = res.data.results
+// })
+
 module.exports = {
 
 getAll: (req, res, next ) => {
-    const shelfieDB = req.app.get('db');
+    const db = req.app.get('db');
+    db.get_inventory()
+        res.status(200).json(products)
+        // console.log()
 
-    shelfieDB.read_product()
-    .then(products => res.status(200).send (products ))
     // .catch( err => {
     //     res.status(500).send({errorMessage: "Oops! Sumpin' messed up..."});
     //     console.log(err)
     // });
-},
-
+    
+}
 }
