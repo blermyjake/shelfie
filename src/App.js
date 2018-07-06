@@ -6,6 +6,15 @@ import Form from './Component/Form/Form';
 import Header from './Component/Header/Header';
 
 class App extends Component {
+
+constructor(){
+  super()
+  this.state = {
+    
+  }
+}
+
+
   render() {
     return (
       <div className="App">
@@ -17,9 +26,11 @@ class App extends Component {
          
         </p>
         <h1>
-         <Dashboard />
+          <Dashboard />
+
           <Form />
-          <Header/>
+
+          <Header />
           </h1>
       </div>
     );
