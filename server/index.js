@@ -20,8 +20,9 @@ massive( process.env.CONNECTION_STRING ).then(shelfieDB => {
 
 app.get('/api/inventory', controller.getAll);
 
+app.put('/api/inventory/:id', mainController.update);
 
-
+app.post('/api/product', controller.
 
 
 

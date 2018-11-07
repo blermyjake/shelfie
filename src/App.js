@@ -11,35 +11,51 @@ class App extends Component {
 constructor(){
   super();
   this.state = {
-    clothes: 
-        [{name: '', 
+    product: 
+        [{
+          name: '', 
          price: '', 
-         img: ''}
-         ]
-  };
+         img: ''}] 
+         
+        
+        //  update: ''
+  }
 }
 
-componentDidMount(){
-axios.get('/api/inventory').then(results => {
-  this.setState({
-    products: results.data
+getResults(){
+  axios.get('/api/inventory').then(results => {
+    this.setState({
+      products: results.data
+    })
   })
-})
-}
+  }
 
-getAll: (req, res, next) => {
-  const shelfieDB = req.app.get('db');
-  const {params} = req;
+handleEditClick(id, name){
+  console.log(id)
+  axios.put(`/api/inventory/${id}`,{name}).then(results=> {
+    this.setState({
+      inventory: results.data
+    })
+  })
 
-  shelfieDB.read
-}
-}
+} 
+
+
+// componentDidMount(){
+
+
+// getAll: (req, res, next) => {
+//   const shelfieDB = req.app.get('db');
+
+//   // shelfieDB.read_inventory()
+// }
+// }
 
 
 
-render(){
-//   // let allInventory = this.state.clothes
-return(
+// render(){
+// //   // let allInventory = this.state.clothes
+// return(
 
 
 //   <Dashboard key={i}
@@ -63,11 +79,14 @@ return(
          
         </p>
         <h1>
-          <Dashboard />
-
-          <Form />
 
           <Header />
+          <hr/>
+          <Dashboard product={this.state.product}/>
+<hr/>
+          <Form update={this.update}/>
+<hr/>
+          
           </h1>
       </div>
     );

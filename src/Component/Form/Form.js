@@ -7,8 +7,12 @@ export default class Form extends Component {
             input1: '',
             input2: '',
             input3: ''
+            // newProduct: null
+            
         }
     }
+
+
 
 handleInput1(val){
     this.setState({
@@ -36,7 +40,7 @@ handleCancel(){
     render(){
         return(
             <div className='Form'>
-                Form
+                
                 <input placeholder="Image URL" onChange={(event) => this.handleInput1 (event.target.value)}/>
                 <input placeholder="Product Name" onChange={(event) => this.handeInput2 (event.target.value)}/>
                 <input placeholder="Price" onChange={(event) => this.handleInput3 (event.target.value)}/>
